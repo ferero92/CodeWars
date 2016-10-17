@@ -16,6 +16,7 @@ public class Mail {
 	private Properties properties;
 	private Session session;
 	private MimeMessage message;
+	private String result;
 
 	public Mail(From from, String to, String subject, String content){
 		
@@ -56,11 +57,75 @@ public class Mail {
 			t.sendMessage(this.message, this.message.getAllRecipients());
 			t.close();
 			
+			this.result = "Mensaje enviado. Revise su carpeta de spam";
+			
 		} catch (Exception e) {
-			System.out.println("Error al enviar el mensaje");
+			this.result = "Error al enviar el mensaje";
 		}
 	}
-	
-	
+
+	public From getFrom() {
+		return from;
+	}
+
+	public void setFrom(From from) {
+		this.from = from;
+	}
+
+	public String getTo() {
+		return to;
+	}
+
+	public void setTo(String to) {
+		this.to = to;
+	}
+
+	public String getSubject() {
+		return subject;
+	}
+
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public Properties getProperties() {
+		return properties;
+	}
+
+	public void setProperties(Properties properties) {
+		this.properties = properties;
+	}
+
+	public Session getSession() {
+		return session;
+	}
+
+	public void setSession(Session session) {
+		this.session = session;
+	}
+
+	public MimeMessage getMessage() {
+		return message;
+	}
+
+	public void setMessage(MimeMessage message) {
+		this.message = message;
+	}
+
+	public String getResult() {
+		return result;
+	}
+
+	public void setResult(String result) {
+		this.result = result;
+	}
 	
 }
